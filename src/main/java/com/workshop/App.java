@@ -10,10 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class App extends Application
@@ -26,25 +23,38 @@ public class App extends Application
     @Override
     public void start(Stage stage) {
         // Create buttons
-        Button btn1 = new Button("Button 1");
-        Button btn2 = new Button("Button 2");
-        Button btn3 = new Button("Button 3");
-        Button btn4 = new Button("Button 4");
-        Button btn5 = new Button("Button 5");
+        Button btn1 = new Button("Top Left");
+        Button btn2 = new Button("Top Right");
+        Button btn3 = new Button("Bottom Left");
+        Button btn4 = new Button("Bottom Right");
+        Button btn5 = new Button("Center");
 
-        // Create a FlowPane
-        FlowPane flowPane = new FlowPane(); // Default is horizontal flow
-        flowPane.setHgap(10); // Set horizontal gap between children
-        flowPane.setVgap(10); // Set vertical gap between children
-        flowPane.setPadding(new Insets(15)); // Add padding around the FlowPane
-        flowPane.setAlignment(Pos.CENTER); // Center alignment for children
+        // Create an AnchorPane
+        AnchorPane anchorPane = new AnchorPane();
 
-        // Add buttons to the FlowPane
-        flowPane.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
+        // Set anchors for the buttons
+        AnchorPane.setTopAnchor(btn1, 10.0); // 10 pixels from the top
+        AnchorPane.setLeftAnchor(btn1, 10.0); // 10 pixels from the left
 
-        // Create a Scene containing the FlowPane
-        Scene scene = new Scene(flowPane, 300, 200); // Set scene size
-        stage.setTitle("FlowPane Example"); // Set stage title
+        AnchorPane.setTopAnchor(btn2, 10.0); // 10 pixels from the top
+        AnchorPane.setRightAnchor(btn2, 10.0); // 10 pixels from the right
+
+        AnchorPane.setBottomAnchor(btn3, 10.0); // 10 pixels from the bottom
+        AnchorPane.setLeftAnchor(btn3, 10.0); // 10 pixels from the left
+
+        AnchorPane.setBottomAnchor(btn4, 10.0); // 10 pixels from the bottom
+        AnchorPane.setRightAnchor(btn4, 10.0); // 10 pixels from the right
+
+        // Center button: set its anchors to null for it to float in the center
+        AnchorPane.setTopAnchor(btn5, 100.0); // 100 pixels from the top
+        AnchorPane.setLeftAnchor(btn5, 100.0); // 100 pixels from the left
+
+        // Add buttons to the AnchorPane
+        anchorPane.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
+
+        // Create a Scene containing the AnchorPane
+        Scene scene = new Scene(anchorPane, 400, 300); // Set scene size
+        stage.setTitle("AnchorPane Example"); // Set stage title
         stage.setScene(scene); // Set scene to the stage
         stage.show(); // Show the stage
     }
