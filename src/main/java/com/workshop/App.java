@@ -3,12 +3,16 @@ package com.workshop;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class App extends Application
@@ -21,53 +25,44 @@ public class App extends Application
     @Override
     public void start(Stage stage) {
 
-        // Create a TableView
-        TableView<Person> tableView = new TableView<>();
+        // Load the application icon from resources
+        Image favIcon = new Image(getClass().getResourceAsStream("/icons/appIcon.png"));
 
-        // Create columns
-        TableColumn<Person, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name")); // Bind to name property
-        nameColumn.setCellFactory(TextFieldTableCell.forTableColumn()); // Enable editing for the name column
-        nameColumn.setOnEditCommit(event -> {
-            Person person = event.getRowValue();
-            person.setName(event.getNewValue()); // Update the name
-        });
+        // Create a Group as the root node
+        Group root = new Group();
 
-        TableColumn<Person, Integer> ageColumn = new TableColumn<>("Age");
-        ageColumn.setCellValueFactory(new PropertyValueFactory<>("age")); // Bind to age property
-        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new javafx.util.converter.IntegerStringConverter())); // Enable editing for the age column
-        ageColumn.setOnEditCommit(event -> {
-            Person person = event.getRowValue();
-            person.setAge(event.getNewValue()); // Update the age
-        });
+        // Create a Scene with the specified root and background color
+        Scene scene = new Scene(root, Color.TOMATO);
 
-        // Set editable property for the TableView
-        tableView.setEditable(true);
-
-        // Add columns to the TableView
-        tableView.getColumns().addAll(nameColumn, ageColumn);
-
-        // Create an ObservableList of Person objects
-        ObservableList<Person> data = FXCollections.observableArrayList(
-                new Person("John Doe", 30),
-                new Person("Jane Smith", 25),
-                new Person("Emily Johnson", 40)
-        );
-
-        // Set the items for the TableView
-        tableView.setItems(data);
-
-        // Create a layout
-        VBox vbox = new VBox(tableView);
-        Scene scene = new Scene(vbox);
-
-        // Set up the Stage
-        stage.setTitle("TableView Example");
         stage.setScene(scene);
-        stage.setWidth(400);
-        stage.setHeight(300);
+
+        // Set the title of the application window
+        stage.setTitle("Togashi");
+
+        // Set the application icon
+        stage.getIcons().add(favIcon);
+
+        // Set the application to full-screen mode
+        stage.setFullScreen(true);
+
+        // Set the hint message for exiting full-screen mode
+        stage.setFullScreenExitHint("Press F to exit FullScreen");
+
+        // Set the key combination to exit full-screen mode
+        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("F"));
+
+        // Set the position of the stage on the screen
+        stage.setX(50); // Set X position
+        stage.setY(50); // Set Y position
+
         stage.show();
-    }
 
     }
+
+
+
+
+
+
+}
 
