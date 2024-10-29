@@ -6,6 +6,7 @@ module com.workshop {
     // Declare that this module requires the javafx.graphics module.
     // This module provides classes for rendering graphics and handling images.
     requires javafx.graphics;
+    requires static lombok;
 
     // Open the com.workshop package for reflection to the javafx.fxml module.
     // This is necessary for JavaFX to be able to load FXML files and instantiate

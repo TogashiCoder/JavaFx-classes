@@ -1,16 +1,14 @@
 package com.workshop;
 
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application
@@ -22,41 +20,54 @@ public class App extends Application
 
     @Override
     public void start(Stage stage) {
-        // Create buttons
-        Button btn1 = new Button("Top Left");
-        Button btn2 = new Button("Top Right");
-        Button btn3 = new Button("Bottom Left");
-        Button btn4 = new Button("Bottom Right");
-        Button btn5 = new Button("Center");
 
-        // Create an AnchorPane
-        AnchorPane anchorPane = new AnchorPane();
+        // Create a TableView
+        TableView<Person> tableView = new TableView<>();
 
-        // Set anchors for the buttons
-        AnchorPane.setTopAnchor(btn1, 10.0); // 10 pixels from the top
-        AnchorPane.setLeftAnchor(btn1, 10.0); // 10 pixels from the left
+        // Create columns
+        TableColumn<Person, String> nameColumn = new TableColumn<>("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name")); // Bind to name property
+        nameColumn.setCellFactory(TextFieldTableCell.forTableColumn()); // Enable editing for the name column
+        nameColumn.setOnEditCommit(event -> {
+            Person person = event.getRowValue();
+            person.setName(event.getNewValue()); // Update the name
+        });
 
-        AnchorPane.setTopAnchor(btn2, 10.0); // 10 pixels from the top
-        AnchorPane.setRightAnchor(btn2, 10.0); // 10 pixels from the right
+        TableColumn<Person, Integer> ageColumn = new TableColumn<>("Age");
+        ageColumn.setCellValueFactory(new PropertyValueFactory<>("age")); // Bind to age property
+        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new javafx.util.converter.IntegerStringConverter())); // Enable editing for the age column
+        ageColumn.setOnEditCommit(event -> {
+            Person person = event.getRowValue();
+            person.setAge(event.getNewValue()); // Update the age
+        });
 
-        AnchorPane.setBottomAnchor(btn3, 10.0); // 10 pixels from the bottom
-        AnchorPane.setLeftAnchor(btn3, 10.0); // 10 pixels from the left
+        // Set editable property for the TableView
+        tableView.setEditable(true);
 
-        AnchorPane.setBottomAnchor(btn4, 10.0); // 10 pixels from the bottom
-        AnchorPane.setRightAnchor(btn4, 10.0); // 10 pixels from the right
+        // Add columns to the TableView
+        tableView.getColumns().addAll(nameColumn, ageColumn);
 
-        // Center button: set its anchors to null for it to float in the center
-        AnchorPane.setTopAnchor(btn5, 100.0); // 100 pixels from the top
-        AnchorPane.setLeftAnchor(btn5, 100.0); // 100 pixels from the left
+        // Create an ObservableList of Person objects
+        ObservableList<Person> data = FXCollections.observableArrayList(
+                new Person("John Doe", 30),
+                new Person("Jane Smith", 25),
+                new Person("Emily Johnson", 40)
+        );
 
-        // Add buttons to the AnchorPane
-        anchorPane.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
+        // Set the items for the TableView
+        tableView.setItems(data);
 
-        // Create a Scene containing the AnchorPane
-        Scene scene = new Scene(anchorPane, 400, 300); // Set scene size
-        stage.setTitle("AnchorPane Example"); // Set stage title
-        stage.setScene(scene); // Set scene to the stage
-        stage.show(); // Show the stage
+        // Create a layout
+        VBox vbox = new VBox(tableView);
+        Scene scene = new Scene(vbox);
+
+        // Set up the Stage
+        stage.setTitle("TableView Example");
+        stage.setScene(scene);
+        stage.setWidth(400);
+        stage.setHeight(300);
+        stage.show();
     }
 
-}
+    }
+
