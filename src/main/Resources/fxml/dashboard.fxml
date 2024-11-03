@@ -3,98 +3,101 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
 
-<HBox xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../css/dashboard.css">
+<HBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.workshop.controller.DashboardController"
+      stylesheets="@../css/dashboard.css">
+    <!-- Sidebar -->
     <VBox styleClass="sidebar">
+        <!-- Logo -->
         <ImageView fitWidth="60" fitHeight="60" styleClass="logo">
             <Image url="@../graphics/logoPro.png"/>
         </ImageView>
+
+        <!-- Navigation -->
         <VBox styleClass="nav">
-            <Button text="Dashboards" styleClass="nav-item"/>
-            <Button text="Ventes" styleClass="nav-item"/>
-            <Button text="Achats" styleClass="nav-item"/>
-            <Button text="Stock" styleClass="nav-item"/>
-            <Button text="Fournisseur" styleClass="nav-item"/>
+            <Button styleClass="nav-item">
+                <graphic>
+                    <ImageView fitWidth="20" fitHeight="20">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                </graphic>
+                <Label text="Dashboards" styleClass="nav-text"/>
+            </Button>
+
+            <Button styleClass="nav-item">
+                <graphic>
+                    <ImageView fitWidth="20" fitHeight="20">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                </graphic>
+                <Label text="Ventes" styleClass="nav-text"/>
+            </Button>
+
+            <Button styleClass="nav-item">
+                <graphic>
+                    <ImageView fitWidth="20" fitHeight="20">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                </graphic>
+                <Label text="Achats" styleClass="nav-text"/>
+            </Button>
+
+            <Button styleClass="nav-item">
+                <graphic>
+                    <ImageView fitWidth="20" fitHeight="20">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                </graphic>
+                <Label text="Stock" styleClass="nav-text"/>
+            </Button>
+
+            <Button styleClass="nav-item">
+                <graphic>
+                    <ImageView fitWidth="20" fitHeight="20">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                </graphic>
+                <Label text="Fournisseur" styleClass="nav-text"/>
+            </Button>
         </VBox>
-        <Button text="Log Out" styleClass="logout"/>
+
+        <!-- Logout -->
+        <Button styleClass="logout">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@../graphics/logoPro.png"/>
+                </ImageView>
+            </graphic>
+            <Label text="Log Out" styleClass="logout-text"/>
+        </Button>
     </VBox>
 
+    <!-- Main Content -->
     <VBox styleClass="main-content">
-        <HBox styleClass="metrics">
-            <VBox styleClass="metric-card">
-                <Label text="Total Ventes" styleClass="metric-title"/>
-                <HBox styleClass="metric-value">
-                    <ImageView fitWidth="24" fitHeight="24">
-                        <Image url="@../graphics/logoPro.png"/>
-                    </ImageView>
-                    <Label text="+ 30,000"/>
-                </HBox>
-            </VBox>
-            <VBox styleClass="metric-card">
-                <Label text="Total Achats" styleClass="metric-title"/>
-                <HBox styleClass="metric-value">
-                    <ImageView fitWidth="24" fitHeight="24">
-                        <Image url="@../graphics/logoPro.png"/>
-                    </ImageView>
-                    <Label text="+ 30,000"/>
-                </HBox>
-            </VBox>
-            <VBox styleClass="metric-card">
-                <Label text="Total Stock" styleClass="metric-title"/>
-                <HBox styleClass="metric-value">
-                    <ImageView fitWidth="24" fitHeight="24">
-                        <Image url="@../graphics/logoPro.png"/>
-
-                    </ImageView>
-                    <Label text="+ 30,000"/>
-                </HBox>
-            </VBox>
+        <!-- Top Bar -->
+        <HBox styleClass="top-bar">
+            <TextField promptText="Search" styleClass="search-field"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Export to excel" styleClass="export-button"/>
+            <Button text="+ AJOUTER FOURNISSEUR" styleClass="add-button"/>
+            <ComboBox promptText="MODE DE PAIEMENT" styleClass="mode-combo"/>
+            <ComboBox promptText="REF" styleClass="ref-combo"/>
         </HBox>
 
-        <VBox styleClass="statistics">
-            <Label text="Statistique" styleClass="statistics-title"/>
-            <HBox styleClass="chart">
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 20%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 60%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 80%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 90%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 30%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 25%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 70%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 10%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 40%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 85%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 30%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 45%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 35%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 90%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 85%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 40%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 65%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 50%"/>
-                </VBox>
-                <VBox styleClass="bar-group">
-                    <Region styleClass="bar" style="-fx-pref-height: 45%"/>
-                    <Region styleClass="bar, secondary" style="-fx-pref-height: 20%"/>
-                </VBox>
-            </HBox>
-        </VBox>
+        <!-- Table -->
+        <TableView fx:id="supplierTable" styleClass="supplier-table" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="nomColumn" text="NOM"/>
+                <TableColumn fx:id="refColumn" text="REF"/>
+                <TableColumn fx:id="qteColumn" text="QTE"/>
+                <TableColumn fx:id="designationColumn" text="DESIGNATION"/>
+                <TableColumn fx:id="qte2Column" text="QTE2"/>
+                <TableColumn fx:id="puTtcColumn" text="PU/TTC"/>
+                <TableColumn fx:id="totalColumn" text="TOTAL"/>
+                <TableColumn fx:id="modePaiementColumn" text="MODE DE PAIEMENT"/>
+            </columns>
+        </TableView>
     </VBox>
 </HBox>

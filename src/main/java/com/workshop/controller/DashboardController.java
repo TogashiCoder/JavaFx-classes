@@ -1,75 +1,54 @@
 package com.workshop.controller;
 
+import com.workshop.model.Supplier;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class DashboardController {
 
     @FXML
-    private ImageView logo; // ImageView for the logo
+    private TableView<Supplier> supplierTable;
+
     @FXML
-    private Button dashboardBtn; // Button to navigate to the dashboard
+    private TableColumn<Supplier, String> nomColumn;
     @FXML
-    private Button salesBtn; // Button for sales
+    private TableColumn<Supplier, String> refColumn;
     @FXML
-    private Button purchasesBtn; // Button for purchases
+    private TableColumn<Supplier, Integer> qteColumn;
     @FXML
-    private Button stockBtn; // Button for stock management
+    private TableColumn<Supplier, String> designationColumn;
     @FXML
-    private Button supplierBtn; // Button for supplier management
+    private TableColumn<Supplier, Integer> qte2Column;
     @FXML
-    private VBox mainContent; // Main content area
+    private TableColumn<Supplier, Double> puTtcColumn;
     @FXML
-    private Label logout; // Label for logout
+    private TableColumn<Supplier, Double> totalColumn;
+    @FXML
+    private TableColumn<Supplier, String> modePaiementColumn;
+
+    private ObservableList<Supplier> supplierData = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        // Initialization logic can go here
+        // Link columns with Supplier properties
+        nomColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        refColumn.setCellValueFactory(new PropertyValueFactory<>("ref"));
+        qteColumn.setCellValueFactory(new PropertyValueFactory<>("qte"));
+        designationColumn.setCellValueFactory(new PropertyValueFactory<>("designation"));
+        qte2Column.setCellValueFactory(new PropertyValueFactory<>("qte2"));
+        puTtcColumn.setCellValueFactory(new PropertyValueFactory<>("puTtc"));
+        totalColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
+        modePaiementColumn.setCellValueFactory(new PropertyValueFactory<>("modePaiement"));
 
-        dashboardBtn.setOnAction(event -> navigateToDashboard());
-        salesBtn.setOnAction(event -> navigateToSales());
-        purchasesBtn.setOnAction(event -> navigateToPurchases());
-        stockBtn.setOnAction(event -> navigateToStock());
-        supplierBtn.setOnAction(event -> navigateToSuppliers());
-    }
+        // Set the data to the TableView
+        supplierTable.setItems(supplierData);
 
-    private void navigateToDashboard() {
-        // Logic to navigate to the dashboard
-        System.out.println("Navigating to Dashboard...");
-        // You can replace this with actual logic to update the main content
-    }
-
-    private void navigateToSales() {
-        // Logic to navigate to the sales view
-        System.out.println("Navigating to Sales...");
-        // You can replace this with actual logic to update the main content
-    }
-
-    private void navigateToPurchases() {
-        // Logic to navigate to the purchases view
-        System.out.println("Navigating to Purchases...");
-        // You can replace this with actual logic to update the main content
-    }
-
-    private void navigateToStock() {
-        // Logic to navigate to the stock view
-        System.out.println("Navigating to Stock...");
-        // You can replace this with actual logic to update the main content
-    }
-
-    private void navigateToSuppliers() {
-        // Logic to navigate to the suppliers view
-        System.out.println("Navigating to Suppliers...");
-        // You can replace this with actual logic to update the main content
-    }
-
-    @FXML
-    private void handleLogout() {
-        // Logic to handle user logout
-        System.out.println("Logging out...");
-        // You can add code to navigate to the login screen or close the application
+        // Example data (optional: add real data later)
+        supplierData.add(new Supplier("Supplier1", "REF001", 10, "Item A", 5, 20.0, "Credit"));
+        supplierData.add(new Supplier("Supplier2", "REF002", 8, "Item B", 3, 15.0, "Cash"));
     }
 }
