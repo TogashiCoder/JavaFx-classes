@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.workshop.controller.LoginController"
+      styleClass="main-container"
+      prefWidth="900" prefHeight="600">
+
+    <!-- Left Login Section -->
+    <VBox styleClass="login-section">
+        <ImageView fitWidth="120" fitHeight="120" preserveRatio="true" styleClass="logo-image">
+            <Image url="@../graphics/logoPro.png"/>
+        </ImageView>
+
+        <Label text="Se Connecter" styleClass="title"/>
+
+        <VBox spacing="15" styleClass="form-container">
+            <Label text="Username" styleClass="input-label"/>
+            <TextField fx:id="usernameField" promptText="Enter your email" styleClass="input-field"/>
+
+            <Label text="Mot de passe" styleClass="input-label"/>
+            <PasswordField fx:id="passwordField" promptText="minimum 8 characters" styleClass="input-field"/>
+
+            <Button fx:id="loginButton" text="Login" styleClass="login-button" onAction="#handleLogin"/>
+        </VBox>
+    </VBox>
+
+    <!-- Right Image Section -->
+    <ImageView styleClass="pattern-image">
+        <Image url="@../graphics/image.jpg"/>
+    </ImageView>
+
+</HBox>

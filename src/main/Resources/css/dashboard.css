@@ -1,0 +1,102 @@
+.root {
+    -fx-font-family: system-ui, -apple-system, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+.sidebar {
+    -fx-pref-width: 250px;
+    -fx-background-color: #1a1a1a;
+    -fx-padding: 20px;
+    -fx-spacing: 30px;
+}
+
+.logo {
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+}
+
+.nav {
+    -fx-spacing: 8px;
+}
+
+.nav-item {
+    -fx-padding: 12px;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 6px;
+}
+
+.nav-item:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout {
+    -fx-padding: 12px;
+    -fx-text-fill: #ff4444;
+    -fx-cursor: hand;
+    -fx-background-color: transparent;
+}
+
+.main-content {
+    -fx-padding: 20px;
+    -fx-spacing: 30px;
+}
+
+.metrics {
+    -fx-spacing: 20px;
+}
+
+.metric-card {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0, 0, 2);
+}
+
+.metric-title {
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+}
+
+.metric-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-spacing: 8px;
+}
+
+.statistics {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0, 0, 2);
+    -fx-spacing: 20px;
+}
+
+.statistics-title {
+    -fx-font-size: 18px;
+    -fx-text-fill: #333;
+}
+
+.chart {
+    -fx-pref-height: 300px;
+    -fx-alignment: bottom-center;
+    -fx-spacing: 20px;
+    -fx-padding: 20px 0;
+}
+
+.bar-group {
+    -fx-spacing: 8px;
+    -fx-alignment: bottom-center;
+}
+
+.bar {
+    -fx-background-color: #2196F3;
+    -fx-pref-width: 20px;
+    -fx-background-radius: 4px 4px 0 0;
+}
+
+.bar.secondary {
+    -fx-background-color: #4CAF50;
+}

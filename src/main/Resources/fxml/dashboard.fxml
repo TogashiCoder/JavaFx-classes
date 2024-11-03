@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../css/dashboard.css">
+    <VBox styleClass="sidebar">
+        <ImageView fitWidth="60" fitHeight="60" styleClass="logo">
+            <Image url="@../graphics/logoPro.png"/>
+        </ImageView>
+        <VBox styleClass="nav">
+            <Button text="Dashboards" styleClass="nav-item"/>
+            <Button text="Ventes" styleClass="nav-item"/>
+            <Button text="Achats" styleClass="nav-item"/>
+            <Button text="Stock" styleClass="nav-item"/>
+            <Button text="Fournisseur" styleClass="nav-item"/>
+        </VBox>
+        <Button text="Log Out" styleClass="logout"/>
+    </VBox>
+
+    <VBox styleClass="main-content">
+        <HBox styleClass="metrics">
+            <VBox styleClass="metric-card">
+                <Label text="Total Ventes" styleClass="metric-title"/>
+                <HBox styleClass="metric-value">
+                    <ImageView fitWidth="24" fitHeight="24">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                    <Label text="+ 30,000"/>
+                </HBox>
+            </VBox>
+            <VBox styleClass="metric-card">
+                <Label text="Total Achats" styleClass="metric-title"/>
+                <HBox styleClass="metric-value">
+                    <ImageView fitWidth="24" fitHeight="24">
+                        <Image url="@../graphics/logoPro.png"/>
+                    </ImageView>
+                    <Label text="+ 30,000"/>
+                </HBox>
+            </VBox>
+            <VBox styleClass="metric-card">
+                <Label text="Total Stock" styleClass="metric-title"/>
+                <HBox styleClass="metric-value">
+                    <ImageView fitWidth="24" fitHeight="24">
+                        <Image url="@../graphics/logoPro.png"/>
+
+                    </ImageView>
+                    <Label text="+ 30,000"/>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="statistics">
+            <Label text="Statistique" styleClass="statistics-title"/>
+            <HBox styleClass="chart">
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 20%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 60%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 80%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 90%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 30%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 25%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 70%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 10%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 40%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 85%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 30%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 45%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 35%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 90%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 85%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 40%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 65%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 50%"/>
+                </VBox>
+                <VBox styleClass="bar-group">
+                    <Region styleClass="bar" style="-fx-pref-height: 45%"/>
+                    <Region styleClass="bar, secondary" style="-fx-pref-height: 20%"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </VBox>
+</HBox>
